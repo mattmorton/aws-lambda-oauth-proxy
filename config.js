@@ -1,16 +1,28 @@
 module.exports = {
   defaults: {
-    origin: "https://7ztjdgzh3e.execute-api.ap-southeast-2.amazonaws.com",
+    origin: process.env.HOST,
     prefix: "/connect",
-    transport: "state"
+    transport: "state",
   },
   strava: {
-    key: process.env.CLIENT_ID,
-    secret: process.env.CLIENT_SECRET,
-    callback: "/callback",
+    key: process.env.STRAVA_CLIENT_ID,
+    secret: process.env.STRAVA_CLIENT_SECRET,
     overrides: {
-      client: {
-        dynamic: ["callback", "transport"]
+      redirect: {
+        transport: "querystring",
+        response: ["tokens"],
+        dynamic: ["callback"]
+      }
+    }
+  },
+  github: {
+    key: process.env.GITHUB_CLIENT_ID,
+    secret: process.env.GITHUB_CLIENT_SECRET,
+    overrides: {
+      redirect: {
+        transport: "querystring",
+        response: ["tokens"],
+        dynamic: ["callback"]
       }
     }
   }
