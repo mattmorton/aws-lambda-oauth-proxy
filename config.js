@@ -1,16 +1,16 @@
 module.exports = {
   defaults: {
     origin: "https://7ztjdgzh3e.execute-api.ap-southeast-2.amazonaws.com",
-    prefix: "/develop/connect",
-    transport: "querystring"
+    prefix: "/connect",
+    transport: "state"
   },
   strava: {
     key: process.env.CLIENT_ID,
     secret: process.env.CLIENT_SECRET,
-    callback: "/develop/strava/callback",
+    callback: "/callback",
     overrides: {
       client: {
-        dynamic: ["callback"]
+        dynamic: ["callback", "transport"]
       }
     }
   }

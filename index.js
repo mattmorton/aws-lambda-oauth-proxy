@@ -1,6 +1,6 @@
 var config = require('./config');
 var grant = require('grant').aws({
-  config, session: {secret: process.env.SECRET }
+  config, session: {secret: process.env.SESSION_SECRET }
 })
 exports.handler = async (event) => {
   var {redirect, response} = await grant(event)
