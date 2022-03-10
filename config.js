@@ -1,12 +1,13 @@
 module.exports = {
   defaults: {
     origin: process.env.HOST,
-    prefix: "/connect",
     transport: "state",
   },
   strava: {
     key: process.env.STRAVA_CLIENT_ID,
     secret: process.env.STRAVA_CLIENT_SECRET,
+    scope: ['read', 'read_all', 'profile:read_all', 'activity:read', 'activity:read_all'],
+    custom_params: { "approval_prompt": "force" },
     overrides: {
       redirect: {
         transport: "querystring",
