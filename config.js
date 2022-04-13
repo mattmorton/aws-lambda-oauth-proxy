@@ -26,5 +26,16 @@ module.exports = {
         dynamic: ["callback"]
       }
     }
+  },
+  spotify: {
+    key: process.env.SPOTIFY_CLIENT_ID,
+    secret: process.env.SPOTIFY_CLIENT_SECRET,
+    overrides: {
+      redirect: {
+        transport: "querystring",
+        response: ["tokens"],
+        dynamic: ["callback"]
+      }
+    }
   }
 }
